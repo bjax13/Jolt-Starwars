@@ -4,7 +4,7 @@ import Card from './Card.js';
 import SearchBar from "./SearchBar.js"
 import star from './images/star.svg';
 import wars from './images/wars.svg';
-import axios from 'axios'
+import axios from 'axios';
 
 class App extends Component {
 
