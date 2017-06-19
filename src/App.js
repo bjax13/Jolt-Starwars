@@ -73,7 +73,6 @@ class App extends Component {
   }
 
   onSaveFav(id){
-    console.log('fav Saved' + id);
     let currentFavs = this.state.favs
 
     if (currentFavs.indexOf(id)=== -1) {

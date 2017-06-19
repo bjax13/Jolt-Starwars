@@ -18,7 +18,6 @@ class Card extends Component {
 
   }
   onFav(){
-    console.log('ToggleFav');
     this.props.onSaveFav(this.props.id);
 
   }
