@@ -29,6 +29,16 @@ class Card extends Component {
 
 
   render() {
+    let findHomeWorld = (planetID) => {
+      console.log(planetID);
+      for (var i = 0; i < this.props.planetList.length; i++) {
+        if (this.props.planetList[i].id === planetID) {
+          return this.props.planetList[i].name
+        }
+      }
+      return 'planet not found'
+    }
+
     let name = this.props.name || "test";
     let imageURL = this.props.imageURL || "http://localhost:3008/darth_vader.jpg";
     let birthday = this.props.birthday || "test";
@@ -68,9 +78,8 @@ class Card extends Component {
                 <span>{birthday}</span>
             </p>
             <p>
-                {/* Note that in order to get the homeworld's name, you have to get the planet name from a different endpoint than the people */}
                 <span>Homeworld:</span>
-                <span>{homeWorld}</span>
+                <span>{findHomeWorld(homeWorld)}</span>
             </p>
             <button type="button" onClick={this.onEdit.bind(this)}>edit</button>
             {editForm}
