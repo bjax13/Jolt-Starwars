@@ -20,23 +20,32 @@ class App extends Component {
 
 
   componentDidMount(){
-    axios.get('http://localhost:3008/people?_page=1&q=19bby').then((response)=>{
-      this.setState({
-        characters: response.data
-      })
-    })
+    this.getPeople()
 
-    axios.get('http://localhost:3008/planets').then((response)=>{
-      this.setState({
-        planets: response.data
-      })
-    })
+    this.getPlanets()
+
+
   }
 
   onSearch(text){
     console.log("searched for " + text);
     this.setState({
       searchText: text
+    })
+  }
+
+  getPeople(){
+    axios.get('http://localhost:3008/people?_page=1&q=19bby').then((response)=>{
+      this.setState({
+        characters: response.data
+      })
+    })
+  }
+  getPlanets(){
+    axios.get('http://localhost:3008/planets').then((response)=>{
+      this.setState({
+        planets: response.data
+      })
     })
   }
 
