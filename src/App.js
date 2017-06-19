@@ -8,6 +8,16 @@ import axios from 'axios'
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      characters: [],
+      planets: [],
+    }
+  }
+
+
+
   componentDidMount(){
     axios.get('http://localhost:3008/people').then((response)=>{
       console.log("people");
