@@ -10,10 +10,14 @@ class Card extends Component {
   }
 
   onEdit(){
-    console.log('editMode');
+    this.setState({
+      editMode: !this.state.editMode
+    })
+    console.log(this.state.editMode);
   }
-  onSaveEdit(){
+  onSaveEdit(element){
     console.log('saved');
+    element.preventDefault();
   }
 
 
@@ -37,8 +41,9 @@ class Card extends Component {
                 <span>Homeworld:</span>
                 <span>{homeWorld}</span>
             </p>
-            <button type="button" onClick={this.onEdit}>edit</button>
-            <form onSubmit={this.onSaveEdit}>
+            <button type="button" onClick={this.onEdit.bind(this)}>edit</button>
+            <form
+              onSubmit={this.onSaveEdit.bind(this)}>
               <input type="text" ref="characterName"/> <span>:Name</span>
               <input type="text" ref="characterBirthday"/> <span>:Birthday</span>
               <input type="text" ref="cha"/> <span>:Planet</span>
