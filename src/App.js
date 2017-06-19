@@ -42,6 +42,15 @@ class App extends Component {
 
 
   render() {
+    let findHomeWorld = (planetID) => {
+      for (var i = 0; i < this.state.planets.length; i++) {
+        if (this.state.planets[i].id === planetID) {
+          return this.state.planets[i].name
+        }
+      }
+      return 'planet not found'
+    }
+
     return (
       <div className='content'>
         <div className='logo'>
@@ -57,13 +66,9 @@ class App extends Component {
             name={person.name}
             imageURL={("http://localhost:3008/" + person.image) }
             birthday={person.birth_year}
-            homeWorld={person.homeworld}/>
+            homeWorld={findHomeWorld(person.homeworld)}/>
         })}
-        <Card
-          name="darth Pork"
-          imageURL="http://68.media.tumblr.com/df7d6121a453c11a415fb1d5866bbf08/tumblr_mw9j7dJ1ZM1rha1xmo1_500.jpg"
-          birthday="pigDay"
-          homeWorld="earth"/>
+
       </div>
     );
   }
