@@ -54,10 +54,10 @@ class App extends Component {
 
         {this.state.characters.map((person) =>{
            return <Card
-            name="darth Pork"
-            imageURL="http://68.media.tumblr.com/df7d6121a453c11a415fb1d5866bbf08/tumblr_mw9j7dJ1ZM1rha1xmo1_500.jpg"
-            birthday="pigDay"
-            homeWorld="earth"/>
+            name={person.name}
+            imageURL={("http://localhost:3008/" + person.image) }
+            birthday={person.birth_year}
+            homeWorld={person.homeworld}/>
         })}
         <Card
           name="darth Pork"
