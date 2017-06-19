@@ -13,14 +13,14 @@ class App extends Component {
     this.state = {
       characters: [],
       planets: [],
-      searchText: "test"
+      searchText: "19bby"
     }
   }
 
 
 
   componentDidMount(){
-    this.getPeople()
+    this.getPeople(1,this.state.searchText)
 
     this.getPlanets()
 
@@ -34,8 +34,8 @@ class App extends Component {
     })
   }
 
-  getPeople(){
-    axios.get('http://localhost:3008/people?_page=1&q=19bby').then((response)=>{
+  getPeople(page, search){
+    axios.get('http://localhost:3008/people?_page='+ page +'&q=' + search).then((response)=>{
       this.setState({
         characters: response.data
       })
