@@ -13,7 +13,7 @@ class Card extends Component {
     this.setState({
       editMode: !this.state.editMode
     })
-    console.log(this.state.editMode);
+    
   }
   onSaveEdit(element){
     console.log('saved');
@@ -26,6 +26,21 @@ class Card extends Component {
     let imageURL = this.props.imageURL || "http://localhost:3008/darth_vader.jpg";
     let birthday = this.props.birthday || "test";
     let homeWorld = this.props.homeWorld || "test";
+
+    let editForm;
+
+    if (this.state.editMode === true) {
+      editForm = <form
+        onSubmit={this.onSaveEdit.bind(this)}>
+        <input type="text" ref="characterName"/> <span>:Name</span>
+        <input type="text" ref="characterBirthday"/> <span>:Birthday</span>
+        <input type="text" ref="cha"/> <span>:Planet</span>
+        <hr/>
+        <button>Save</button>
+      </form>
+    }else {
+      editForm = <div></div>
+    }
 
     return (
       <div className='card'>
@@ -42,14 +57,7 @@ class Card extends Component {
                 <span>{homeWorld}</span>
             </p>
             <button type="button" onClick={this.onEdit.bind(this)}>edit</button>
-            <form
-              onSubmit={this.onSaveEdit.bind(this)}>
-              <input type="text" ref="characterName"/> <span>:Name</span>
-              <input type="text" ref="characterBirthday"/> <span>:Birthday</span>
-              <input type="text" ref="cha"/> <span>:Planet</span>
-              <hr/>
-              <button>Save</button>
-            </form>
+            {editForm}
         </div>
     </div>
 
