@@ -19,6 +19,7 @@ class Card extends Component {
   }
   onFav(){
     console.log('ToggleFav');
+    this.props.onSaveFav(this.props.id);
 
   }
   onSave(element){
@@ -94,7 +95,7 @@ class Card extends Component {
                 <span>Favorite:</span>
                 <span>{this.props.fav ? "Yes" : "No"}</span>
             </p>
-            
+
             <button type="button" onClick={this.onFav.bind(this)}>ToggleFav</button>
             <button type="button" onClick={this.onEdit.bind(this)}>edit</button>
 
