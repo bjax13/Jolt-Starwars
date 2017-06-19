@@ -20,23 +20,21 @@ class App extends Component {
 
 
   componentDidMount(){
-
-
     axios.get('http://localhost:3008/people?_page=1&q=19bby').then((response)=>{
-
-
       this.setState({
         characters: response.data
       })
     })
 
     axios.get('http://localhost:3008/planets').then((response)=>{
-
-
       this.setState({
         planets: response.data
       })
     })
+  }
+
+  onSearch(text){
+    console.log("searched for " + text);
   }
 
 
@@ -58,7 +56,9 @@ class App extends Component {
           <span className='interview-text'>The Interview</span>
           <img src={wars} alt="wars-logo" />
         </div>
-        <SearchBar searchText={this.state.searchText}/>
+        <SearchBar
+          searchText={this.state.searchText}
+          onSearch={this.onSearch}/>
 
 
         {this.state.characters.map((person) =>{
