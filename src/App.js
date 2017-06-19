@@ -13,6 +13,7 @@ class App extends Component {
     this.state = {
       characters: [],
       planets: [],
+      searchText: ""
     }
   }
 
@@ -57,7 +58,7 @@ class App extends Component {
           <span className='interview-text'>The Interview</span>
           <img src={wars} alt="wars-logo" />
         </div>
-        <SearchBar />
+        <SearchBar searchText={this.state.searchText}/>
 
 
         {this.state.characters.map((person) =>{
