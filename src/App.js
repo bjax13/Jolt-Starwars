@@ -35,6 +35,9 @@ class App extends Component {
 
   onSearch(text){
     console.log("searched for " + text);
+    this.setState({
+      searchText: text
+    })
   }
 
 
