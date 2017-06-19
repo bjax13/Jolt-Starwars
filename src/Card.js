@@ -18,6 +18,7 @@ class Card extends Component {
   }
   onSaveEdit(element){
     console.log('saved');
+    console.log('saved');
     element.preventDefault();
   }
 
@@ -30,7 +31,6 @@ class Card extends Component {
 
   render() {
     let findHomeWorld = (planetID) => {
-      console.log(planetID);
       for (var i = 0; i < this.props.planetList.length; i++) {
         if (this.props.planetList[i].id === planetID) {
           return this.props.planetList[i].name
@@ -52,8 +52,8 @@ class Card extends Component {
         <input type="text" ref="characterName"/> <span>:Name</span>
         <input type="text" ref="characterBirthday"/> <span>:Birthday</span>
         <select
-
           value={this.state.planetOptions}
+          ref="characterHomeWorld"
           onChange={this.onPlanetEditSelect.bind(this)}>
           {this.props.planetList.map((planet)=>{
             return <option key={planet.id} value={planet.id}>{planet.name}</option>

@@ -52,14 +52,6 @@ class App extends Component {
 
 
   render() {
-    let findHomeWorld = (planetID) => {
-      for (var i = 0; i < this.state.planets.length; i++) {
-        if (this.state.planets[i].id === planetID) {
-          return this.state.planets[i].name
-        }
-      }
-      return 'planet not found'
-    }
 
     return (
       <div className='content'>
