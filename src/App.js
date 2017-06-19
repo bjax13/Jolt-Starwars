@@ -61,7 +61,7 @@ class App extends Component {
         </div>
         <SearchBar
           searchText={this.state.searchText}
-          onSearch={this.onSearch}/>
+          onSearch={this.onSearch.bind(this)}/>
 
 
         {this.state.characters.map((person) =>{
