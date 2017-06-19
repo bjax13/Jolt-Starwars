@@ -13,25 +13,25 @@ class App extends Component {
     this.state = {
       characters: [],
       planets: [],
-      searchText: "19bby"
+      searchText: "",
+      viewPage:1
     }
   }
 
 
 
   componentDidMount(){
-    this.getPeople(1,this.state.searchText)
+    this.getPeople(this.state.viewPage,this.state.searchText)
 
     this.getPlanets()
-
-
   }
 
   onSearch(text){
-    console.log("searched for " + text);
     this.setState({
-      searchText: text
+      searchText: text,
+      viewPage: 1,
     })
+    this.getPeople(this.state.viewPage,this.state.searchText)
   }
 
   getPeople(page, search){

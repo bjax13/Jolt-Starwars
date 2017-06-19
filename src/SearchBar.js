@@ -4,7 +4,6 @@ import './SearchBar.css';
 class SearchBar extends Component {
 
   handleChange(text) {
-    console.log(text.target.value);
     this.props.onSearch(text.target.value)
   }
 
