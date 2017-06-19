@@ -6,7 +6,10 @@ class Card extends Component {
     super(props);
     this.state = {
       editMode: true,
-      planetOptions: this.props.homeWorld
+      planetOptions: this.props.homeWorld,
+      name: this.props.name,
+      birthday : this.props.birthday ,
+      homeWorld : this.props.homeWorld,
     }
   }
 
@@ -16,10 +19,12 @@ class Card extends Component {
     })
 
   }
-  onSaveEdit(element){
-    console.log('saved');
-    console.log('saved');
+  onSave(element){
     element.preventDefault();
+    console.log('card');
+
+    this.props.onSaveEdit(this.props.id, this.refs.characterName.value, this.refs.characterBirthday.value, this.refs.characterHomeWorld.value)
+
   }
 
   onPlanetEditSelect(event){
@@ -39,16 +44,13 @@ class Card extends Component {
       return 'planet not found'
     }
 
-    let name = this.props.name || "test";
-    let imageURL = this.props.imageURL || "http://localhost:3008/darth_vader.jpg";
-    let birthday = this.props.birthday || "test";
-    let homeWorld = this.props.homeWorld || "test";
+    let imageURL = this.props.imageURL;
 
     let editForm;
 
     if (this.state.editMode === true) {
       editForm = <form
-        onSubmit={this.onSaveEdit.bind(this)}>
+        onSubmit={this.onSave.bind(this)}>
         <input type="text" ref="characterName"/> <span>:Name</span>
         <input type="text" ref="characterBirthday"/> <span>:Birthday</span>
         <select
@@ -71,15 +73,15 @@ class Card extends Component {
     return (
       <div className='card'>
         <div className='card-content'>
-          	<div className='card-name'>{name}</div>
+          	<div className='card-name'>{this.state.name}</div>
           	<img src={imageURL} alt='profile'/>
             <p>
                 <span>Birthday:</span>
-                <span>{birthday}</span>
+                <span>{this.state.birthday}</span>
             </p>
             <p>
                 <span>Homeworld:</span>
-                <span>{findHomeWorld(homeWorld)}</span>
+                <span>{findHomeWorld(this.state.homeWorld)}</span>
             </p>
             <button type="button" onClick={this.onEdit.bind(this)}>edit</button>
             {editForm}

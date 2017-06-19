@@ -36,6 +36,7 @@ class App extends Component {
 
   getPeople(page, search){
     axios.get('http://localhost:3008/people?_page='+ page +'&q=' + search).then((response)=>{
+      console.log(response.data);
       this.setState({
         characters: response.data
       })
@@ -47,6 +48,19 @@ class App extends Component {
         planets: response.data
       })
     })
+  }
+
+  onSaveEdit(id, name, birthday, world){
+    console.log('saved');
+
+    axios.patch("http://localhost:3008/people/"+ id , {
+      name: name,
+      birth_year: birthday,
+      homeworld: world,
+    })
+
+    this.getPeople(this.state.viewPage, this.state.searchText)
+
   }
 
 
@@ -68,6 +82,8 @@ class App extends Component {
         {this.state.characters.map((person) =>{
            return <Card
             key={person.id}
+            id={person.id}
+            onSaveEdit={this.onSaveEdit.bind(this)}
             name={person.name}
             imageURL={("http://localhost:3008/" + person.image) }
             birthday={person.birth_year}
