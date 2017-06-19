@@ -22,12 +22,20 @@ class App extends Component {
     axios.get('http://localhost:3008/people').then((response)=>{
       console.log("people");
       console.log(response.data);
+
+      this.setState({
+        characters: response.data
+      })
     })
 
     axios.get('http://localhost:3008/planets').then((response)=>{
 
       console.log("planets");
       console.log(response.data);
+
+      this.setState({
+        planets: response.data
+      })
     })
   }
 
