@@ -6,6 +6,7 @@ class Card extends Component {
     super(props);
     this.state = {
       editMode: true,
+      planetOptions: this.props.homeWorld
     }
   }
 
@@ -18,6 +19,12 @@ class Card extends Component {
   onSaveEdit(element){
     console.log('saved');
     element.preventDefault();
+  }
+
+  onPlanetEditSelect(event){
+    this.setState({planetOptions:event.target.value})
+
+    console.log(event.target.value);
   }
 
 
@@ -35,12 +42,12 @@ class Card extends Component {
         <input type="text" ref="characterName"/> <span>:Name</span>
         <input type="text" ref="characterBirthday"/> <span>:Birthday</span>
         <select
-          name="planetOptions"
+
           value={this.state.planetOptions}
-          onChange={this.onPlanetEditSelect}>
-          <option value={1}>Planet 1</option>
-          <option value={2}>Planet 2</option>
-          <option value={3}>Planet 3</option>
+          onChange={this.onPlanetEditSelect.bind(this)}>
+          {this.props.planetList.map((planet)=>{
+            return <option key={planet.id} value={planet.id}>{planet.name}</option>
+          })}
         </select>
 
         <span>:Planet</span>

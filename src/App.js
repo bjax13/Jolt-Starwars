@@ -79,6 +79,7 @@ class App extends Component {
             name={person.name}
             imageURL={("http://localhost:3008/" + person.image) }
             birthday={person.birth_year}
+            planetList={this.state.planets}
             homeWorld={findHomeWorld(person.homeworld)}/>
         })}
 
