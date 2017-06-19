@@ -2,6 +2,21 @@ import React, { Component } from 'react';
 import './Card.css';
 
 class Card extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      editMode: false,
+    }
+  }
+
+  onEdit(){
+    console.log('editMode');
+  }
+  onSaveEdit(){
+    console.log('saved');
+  }
+
+
   render() {
     let name = this.props.name || "test";
     let imageURL = this.props.imageURL || "http://localhost:3008/darth_vader.jpg";
@@ -22,6 +37,14 @@ class Card extends Component {
                 <span>Homeworld:</span>
                 <span>{homeWorld}</span>
             </p>
+            <button type="button" onClick={this.onEdit}>edit</button>
+            <form onSubmit={this.onSaveEdit}>
+              <input type="text" ref="characterName"/> <span>:Name</span>
+              <input type="text" ref="characterBirthday"/> <span>:Birthday</span>
+              <input type="text" ref="cha"/> <span>:Planet</span>
+              <hr/>
+              <button>Save</button>
+            </form>
         </div>
     </div>
 
