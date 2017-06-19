@@ -19,7 +19,6 @@ class Card extends Component {
   }
   onSave(element){
     element.preventDefault();
-    console.log('card');
 
     this.props.onSaveEdit(this.props.id, this.refs.characterName.value, this.refs.characterBirthday.value, this.refs.characterHomeWorld.value)
 
@@ -31,7 +30,6 @@ class Card extends Component {
   onPlanetEditSelect(event){
     this.setState({planetOptions:event.target.value})
 
-    console.log(event.target.value);
   }
 
 

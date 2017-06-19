@@ -36,11 +36,9 @@ class App extends Component {
 
   getPeople(page, search){
     axios.get('http://localhost:3008/people?_page='+ page +'&q=' + search).then((response)=>{
-      console.log(response.data);
       this.setState({
         characters: response.data
       })
-      console.log('getpeeps');
     })
   }
   getPlanets(){
@@ -52,8 +50,6 @@ class App extends Component {
   }
 
   onSaveEdit(id, name, birthday, world){
-    console.log('saved');
-
     axios.patch("http://localhost:3008/people/"+ id , {
       name: name,
       birth_year: birthday,
