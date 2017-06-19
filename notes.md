@@ -1,4 +1,4 @@
-Start Time: 9:55 		End Time:
+Start Time: 9:55 		End Time: 2:54
 
 On part 4 I was having issues with the /favoritepeople endpoint.  I was planning on storing an array of people Ids and using the length of the array to display the count of favorites.  Since i could not get the endpoint to work I added the functionality and managed the array in the state.  So favorites will not persist, but you will atleast be able to see the functionality that I was going for.  
 
