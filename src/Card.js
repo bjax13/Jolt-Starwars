@@ -5,7 +5,7 @@ class Card extends Component {
   constructor(props){
     super(props);
     this.state = {
-      editMode: true,
+      editMode: false,
       planetOptions: this.props.homeWorld,
     }
   }
@@ -15,6 +15,10 @@ class Card extends Component {
     this.setState({
       editMode: !this.state.editMode
     })
+
+  }
+  onFav(){
+    console.log('ToggleFav');
 
   }
   onSave(element){
@@ -86,7 +90,14 @@ class Card extends Component {
                 <span>Homeworld:</span>
                 <span>{findHomeWorld(homeWorld)}</span>
             </p>
+            <p>
+                <span>Favorite:</span>
+                <span>{this.props.fav ? "Yes" : "No"}</span>
+            </p>
+            
+            <button type="button" onClick={this.onFav.bind(this)}>ToggleFav</button>
             <button type="button" onClick={this.onEdit.bind(this)}>edit</button>
+
             {editForm}
         </div>
     </div>
