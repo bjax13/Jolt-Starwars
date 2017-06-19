@@ -6,6 +6,9 @@ import star from './images/star.svg';
 import wars from './images/wars.svg';
 
 class App extends Component {
+
+
+
   render() {
     return (
       <div className='content'>
@@ -15,7 +18,11 @@ class App extends Component {
           <img src={wars} alt="wars-logo" />
         </div>
         <SearchBar />
-        <Card />
+        <Card 
+          name="darth Pork"
+          imageURL = "http://68.media.tumblr.com/df7d6121a453c11a415fb1d5866bbf08/tumblr_mw9j7dJ1ZM1rha1xmo1_500.jpg"
+          birthday="pigDay"
+          homeWorld="earth"/>
       </div>
     );
   }
