@@ -60,7 +60,7 @@ class App extends Component {
         </div>
         <SearchBar />
 
-
+        {/* bullet 2 and 3 completed  Part I completed */}
         {this.state.characters.map((person) =>{
            return <Card
             name={person.name}
