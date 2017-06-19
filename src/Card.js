@@ -5,7 +5,7 @@ class Card extends Component {
   constructor(props){
     super(props);
     this.state = {
-      editMode: false,
+      editMode: true,
     }
   }
 
@@ -13,7 +13,7 @@ class Card extends Component {
     this.setState({
       editMode: !this.state.editMode
     })
-    
+
   }
   onSaveEdit(element){
     console.log('saved');
@@ -34,7 +34,16 @@ class Card extends Component {
         onSubmit={this.onSaveEdit.bind(this)}>
         <input type="text" ref="characterName"/> <span>:Name</span>
         <input type="text" ref="characterBirthday"/> <span>:Birthday</span>
-        <input type="text" ref="cha"/> <span>:Planet</span>
+        <select
+          name="planetOptions"
+          value={this.state.planetOptions}
+          onChange={this.onPlanetEditSelect}>
+          <option value={1}>Planet 1</option>
+          <option value={2}>Planet 2</option>
+          <option value={3}>Planet 3</option>
+        </select>
+
+        <span>:Planet</span>
         <hr/>
         <button>Save</button>
       </form>
