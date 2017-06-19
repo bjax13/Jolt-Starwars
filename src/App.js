@@ -4,8 +4,22 @@ import Card from './Card.js';
 import SearchBar from "./SearchBar.js"
 import star from './images/star.svg';
 import wars from './images/wars.svg';
+import axios from 'axios'
 
 class App extends Component {
+
+  componentDidMount(){
+    axios.get('http://localhost:3008/people').then((response)=>{
+      console.log("people");
+      console.log(response.data);
+    })
+
+    axios.get('http://localhost:3008/planets').then((response)=>{
+
+      console.log("planets");
+      console.log(response.data);
+    })
+  }
 
 
 
@@ -18,10 +32,10 @@ class App extends Component {
           <img src={wars} alt="wars-logo" />
         </div>
         <SearchBar />
-        {/* bullet .1 completed  */}
+
         <Card
           name="darth Pork"
-          imageURL = "http://68.media.tumblr.com/df7d6121a453c11a415fb1d5866bbf08/tumblr_mw9j7dJ1ZM1rha1xmo1_500.jpg"
+          imageURL="http://68.media.tumblr.com/df7d6121a453c11a415fb1d5866bbf08/tumblr_mw9j7dJ1ZM1rha1xmo1_500.jpg"
           birthday="pigDay"
           homeWorld="earth"/>
       </div>
