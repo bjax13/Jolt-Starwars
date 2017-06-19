@@ -13,7 +13,7 @@ class App extends Component {
     this.state = {
       characters: [],
       planets: [],
-      searchText: ""
+      searchText: "test"
     }
   }
 

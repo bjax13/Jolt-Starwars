@@ -5,7 +5,10 @@ class SearchBar extends Component {
   render() {
     return (
       <div className='search-bar'>
-      <input placeholder='Search Your Destiny' />
+      <input
+        type="text"
+        value={this.props.searchText}
+        placeholder='Search Your Destiny' />
       </div>
     );
   }
