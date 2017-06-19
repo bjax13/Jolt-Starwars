@@ -19,6 +19,8 @@ class App extends Component {
 
 
   componentDidMount(){
+
+    // bullet 4 completed 
     axios.get('http://localhost:3008/people?_page=1').then((response)=>{
 
 
