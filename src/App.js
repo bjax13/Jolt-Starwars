@@ -63,6 +63,7 @@ class App extends Component {
 
         {this.state.characters.map((person) =>{
            return <Card
+            key={person.id}
             name={person.name}
             imageURL={("http://localhost:3008/" + person.image) }
             birthday={person.birth_year}
