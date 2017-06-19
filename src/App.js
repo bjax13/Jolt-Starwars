@@ -40,6 +40,7 @@ class App extends Component {
       this.setState({
         characters: response.data
       })
+      console.log('getpeeps');
     })
   }
   getPlanets(){
@@ -57,9 +58,11 @@ class App extends Component {
       name: name,
       birth_year: birthday,
       homeworld: world,
+    }).then((response)=>{
+
+      this.getPeople(1,'')
     })
 
-    this.getPeople(this.state.viewPage, this.state.searchText)
 
   }
 

@@ -7,11 +7,9 @@ class Card extends Component {
     this.state = {
       editMode: true,
       planetOptions: this.props.homeWorld,
-      name: this.props.name,
-      birthday : this.props.birthday ,
-      homeWorld : this.props.homeWorld,
     }
   }
+
 
   onEdit(){
     this.setState({
@@ -25,6 +23,9 @@ class Card extends Component {
 
     this.props.onSaveEdit(this.props.id, this.refs.characterName.value, this.refs.characterBirthday.value, this.refs.characterHomeWorld.value)
 
+    this.setState({
+      editMode:false
+    })
   }
 
   onPlanetEditSelect(event){
@@ -44,7 +45,11 @@ class Card extends Component {
       return 'planet not found'
     }
 
-    let imageURL = this.props.imageURL;
+    let name = this.props.name  || "test";
+    let imageURL = this.props.imageURL  || "http://localhost:3008/darth_vader.jpg";
+    let birthday = this.props.birthday  || "test";
+    let homeWorld = this.props.homeWorld  || "test";
+
 
     let editForm;
 
@@ -73,15 +78,15 @@ class Card extends Component {
     return (
       <div className='card'>
         <div className='card-content'>
-          	<div className='card-name'>{this.state.name}</div>
+          	<div className='card-name'>{name}</div>
           	<img src={imageURL} alt='profile'/>
             <p>
                 <span>Birthday:</span>
-                <span>{this.state.birthday}</span>
+                <span>{birthday}</span>
             </p>
             <p>
                 <span>Homeworld:</span>
-                <span>{findHomeWorld(this.state.homeWorld)}</span>
+                <span>{findHomeWorld(homeWorld)}</span>
             </p>
             <button type="button" onClick={this.onEdit.bind(this)}>edit</button>
             {editForm}
