@@ -19,9 +19,8 @@ class App extends Component {
 
 
   componentDidMount(){
-    axios.get('http://localhost:3008/people').then((response)=>{
-      console.log("people");
-      console.log(response.data);
+    axios.get('http://localhost:3008/people?_page=1').then((response)=>{
+
 
       this.setState({
         characters: response.data
@@ -30,8 +29,6 @@ class App extends Component {
 
     axios.get('http://localhost:3008/planets').then((response)=>{
 
-      console.log("planets");
-      console.log(response.data);
 
       this.setState({
         planets: response.data
@@ -60,7 +57,7 @@ class App extends Component {
         </div>
         <SearchBar />
 
-        {/* bullet 2 and 3 completed  Part I completed */}
+
         {this.state.characters.map((person) =>{
            return <Card
             name={person.name}
