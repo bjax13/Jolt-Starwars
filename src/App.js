@@ -14,7 +14,8 @@ class App extends Component {
       characters: [],
       planets: [],
       searchText: "",
-      viewPage:1
+      viewPage:1,
+      favCount: 0
     }
   }
 
@@ -67,7 +68,12 @@ class App extends Component {
   render() {
 
     return (
+
       <div className='content'>
+        <div className= "favCount">
+          Count of Favs
+          {" "+this.state.favCount}
+        </div>
         <div className='logo'>
           <img src={star} alt="star-logo" />
           <span className='interview-text'>The Interview</span>
